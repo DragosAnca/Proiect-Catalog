@@ -2,7 +2,6 @@ package ProiectCatalog.Repositories;
 
 import ProiectCatalog.Student;
 
-import java.io.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -47,66 +46,23 @@ public class StudentRepository implements IStudentRepository {
     }
 
     @Override
-    private void add(String[] attributes) throws SQLException {
-        String query = "INSERT INTO student VALUES(?, ?, ?, ?)";
+    public void add(Student student) throws SQLException {
+        String query = "INSERT INTO student (nume, prenume, anDeStudiu) VALUES(?, ?, ?)";
         PreparedStatement statement = connection.prepareStatement(query);
 
-        statement.setInt(1, -1);
-        statement.setString(2, attributes[1]);
-        statement.setString(3, attributes[2]);
-        statement.setString(4, attributes[3]);
+        statement.setString(1, student.getNume());
+        statement.setString(2, student.getPrenume());
+        statement.setInt(3, student.getAnDeStudiu());
 
         statement.executeUpdate();
     }
 
     @Override
-    public void remove(String name) {
-        deleteStudent(name);
-    }
-
-    private void deleteStudent(String name) {
-        for (int i = 0; i <= studenti.size(); i++) {
-            if (studenti.get(i).nume.equals(name)) {
-                studenti.remove(studenti.get(i));
-                saveChanges();
-                break;
-            }
-        }
-
-    }
-
-    public void saveChanges() {
-        File temp = new File("src/Etapa1/Student.CSV");
-        temp.delete();
-        File file = new File("src/Etapa1/Student.CSV");
-        try (FileWriter fw = new FileWriter(file)) {
-            BufferedWriter bw = new BufferedWriter(fw);
-            bw.write("idStudent,nume,prenume,anDeStudiu");
-            for (Student student :
-                    studenti) {
-
-                bw.newLine();
-                bw.write(student.idStudent.toString()
-                        + ","
-                        + student.nume
-                        + ","
-                        + student.prenume
-                        + ","
-                        + student.anDeStudiu);
-
-            }
-            bw.close();
-        } catch (IOException ioe) {
-            System.out.println(ioe);
-        }
-    }
-
-
-    @Override
-    public void add(Student student) {
-        student.idStudent = createNewId();
-        studenti.add(student);
-        saveChanges();
+    public void remove(String name) throws SQLException {
+        String query = "DELETE FROM student where nume = ?";
+        PreparedStatement statement = connection.prepareStatement(query);
+        statement.setString(1, name);
+        statement.executeUpdate();
     }
 }
 

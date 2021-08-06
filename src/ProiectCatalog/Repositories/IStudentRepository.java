@@ -2,7 +2,6 @@ package ProiectCatalog.Repositories;
 
 import ProiectCatalog.Student;
 
-import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -12,7 +11,7 @@ public interface IStudentRepository {
 
     Student getById(int id) throws SQLException;
 
-    void remove(String name) throws IOException;
+    void remove(String name) throws SQLException;
 
-    void add(String[] attributes) throws IOException;
+    void add(Student student) throws SQLException;
 }
