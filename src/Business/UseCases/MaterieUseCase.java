@@ -37,6 +37,7 @@ public class MaterieUseCase implements IUseCase{
                     break;
                 case "2":
                     System.out.println("What class to remove: ");
+                    removeByName(scanner.nextLine());
                     break;
                 case "3":
                     System.out.println("Add a class by writing their info in this order:\n Nume Materie\n Nume Profesor");
