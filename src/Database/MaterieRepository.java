@@ -1,9 +1,7 @@
 package Database;
 
 import Business.Models.Materie;
-import Business.Models.Student;
 import Business.Repositories.IMaterieRepository;
-import Database.DBConnectionUtil;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

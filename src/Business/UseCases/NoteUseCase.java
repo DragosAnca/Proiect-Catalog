@@ -1,9 +1,7 @@
 package Business.UseCases;
 
 import Business.Models.Nota;
-import Business.Models.Student;
 import Business.Repositories.INotaRepository;
-import Business.Repositories.IStudentRepository;
 
 import java.sql.SQLException;
 import java.util.List;
