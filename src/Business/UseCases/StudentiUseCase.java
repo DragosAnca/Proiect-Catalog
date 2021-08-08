@@ -1,12 +1,10 @@
-package ProiectCatalog.UseCases;
+package Business.UseCases;
 
-import ProiectCatalog.Repositories.IStudentRepository;
+import Business.Repositories.IStudentRepository;
 
-import ProiectCatalog.Student;
+import Business.Models.Student;
 
-import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 

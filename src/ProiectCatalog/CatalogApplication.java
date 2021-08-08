@@ -1,7 +1,7 @@
 package ProiectCatalog;
 
 
-import ProiectCatalog.UseCases.IUseCase;
+import Business.UseCases.IUseCase;
 
 import java.util.List;
 import java.util.Scanner;

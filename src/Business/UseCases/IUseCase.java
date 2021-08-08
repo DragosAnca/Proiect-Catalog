@@ -1,4 +1,4 @@
-package ProiectCatalog.UseCases;
+package Business.UseCases;
 
 public interface IUseCase {
     void execute();

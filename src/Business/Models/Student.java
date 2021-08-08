@@ -1,4 +1,4 @@
-package ProiectCatalog;
+package Business.Models;
 
 
 public class Student {

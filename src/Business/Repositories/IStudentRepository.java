@@ -1,6 +1,6 @@
-package ProiectCatalog.Repositories;
+package Business.Repositories;
 
-import ProiectCatalog.Student;
+import Business.Models.Student;
 
 import java.sql.SQLException;
 import java.util.List;
