@@ -91,9 +91,9 @@ public class MaterieRepository implements IMaterieRepository {
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setString(1, numeMaterie);
             statement.executeUpdate();
-        } catch (SQLException e) {
+        }catch (SQLException e){
             e.printStackTrace();
-        } finally {
+        }finally {
             dbConnectionUtil.closeDBConnection(connection);
         }
     }

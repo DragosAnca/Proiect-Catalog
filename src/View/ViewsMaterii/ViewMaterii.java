@@ -1,27 +1,20 @@
-package ProiectCatalog;
-
+package View.ViewsMaterii;
 
 import Business.UseCases.IUseCase;
+import Business.Views.IViewsMaterii.IViewMaterii;
 
 import java.util.List;
 import java.util.Scanner;
 
-public class CatalogApplication {
-    private List<IUseCase> useCases;
+public class ViewMaterii implements IViewMaterii {
 
-    public CatalogApplication(List<IUseCase> useCases) {
+    private List<IUseCase> useCases;
+    public ViewMaterii(List<IUseCase> useCases){
         this.useCases = useCases;
     }
 
-    void printUseCases() {
-        for (IUseCase useCase :
-                useCases) {
-            System.out.println(useCase.getName());
-
-        }
-    }
-
-    void run() {
+    @Override
+    public void displayUseCases() {
         Scanner scanner = new Scanner(System.in);
         while (true) {
             printUseCases();
@@ -29,7 +22,15 @@ public class CatalogApplication {
             String input = scanner.nextLine();
             IUseCase useCase = chooseUseCase(input);
             if (useCase != null)
-            useCase.execute();
+                useCase.execute();
+        }
+    }
+
+    void printUseCases() {
+        for (IUseCase useCase :
+                useCases) {
+            System.out.println(useCase.getName());
+
         }
     }
 
@@ -43,12 +44,3 @@ public class CatalogApplication {
         return null;
     }
 }
-
-
-
-
-
-
-
-
-

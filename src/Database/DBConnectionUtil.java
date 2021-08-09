@@ -14,7 +14,7 @@ public class DBConnectionUtil {
             Connection connection = null;
 
             connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USER, DATABASE_PASSWORD);
-            System.out.println("Connection established!");
+            //System.out.println("Connection established!");
             return connection;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -25,7 +25,7 @@ public class DBConnectionUtil {
         try {
             if (connection != null) {
                 connection.close();
-                System.out.println("Connection closed!");
+                //System.out.println("Connection closed!");
             }
         } catch (SQLException e) {
             e.printStackTrace();

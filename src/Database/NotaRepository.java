@@ -87,7 +87,7 @@ public class NotaRepository implements INotaRepository {
     public void remove(int id) {
         Connection connection = dbConnectionUtil.getInstance();
         try {
-            String query = "DELETE FROM nota where id = ?";
+            String query = "DELETE FROM note where idNota = ?";
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setInt(1, id);
             statement.executeUpdate();
