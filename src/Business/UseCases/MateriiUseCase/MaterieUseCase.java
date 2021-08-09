@@ -1,13 +1,12 @@
 package Business.UseCases.MateriiUseCase;
 
-
-import Business.Repositories.IMaterieRepository;
 import Business.UseCases.IUseCase;
 import View.ViewsMaterii.ViewMaterii;
 
 public class MaterieUseCase implements IUseCase {
     private final String name = "Materii";
     private final String description = "- operatii pe tabela de materii";
+
     private ViewMaterii viewMaterii;
 
     public MaterieUseCase(ViewMaterii viewMaterii) {

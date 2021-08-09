@@ -1,6 +1,5 @@
 package ProiectCatalog;
 
-
 import Business.UseCases.MateriiUseCase.AddMaterieUseCase;
 import Business.UseCases.MateriiUseCase.MaterieUseCase;
 import Business.UseCases.MateriiUseCase.RemoveMaterieUseCase;
@@ -9,7 +8,6 @@ import Business.UseCases.NoteUseCase.AddNotaUseCase;
 import Business.UseCases.NoteUseCase.NoteUseCase;
 import Business.UseCases.NoteUseCase.RemoveNotaUseCase;
 import Business.UseCases.NoteUseCase.ShowAllNoteUseCase;
-import Business.UseCases.ReturnUseCase;
 import Business.UseCases.StudentiUseCase.AddStudentUseCase;
 import Business.UseCases.StudentiUseCase.RemoveStudentUseCase;
 import Business.UseCases.StudentiUseCase.ShowAllStudentiUseCase;
@@ -19,13 +17,12 @@ import Database.NotaRepository;
 import Database.StudentRepository;
 import Business.UseCases.IUseCase;
 import Business.UseCases.StudentiUseCase.StudentiUseCase;
-import View.ViewNote;
-import View.ViewUseCases;
 import View.ViewsMaterii.ViewAddMaterie;
 import View.ViewsMaterii.ViewMaterii;
 import View.ViewsMaterii.ViewRemoveMaterie;
 import View.ViewsMaterii.ViewShowMaterii;
 import View.ViewsNote.ViewAddNota;
+import View.ViewsNote.ViewNote;
 import View.ViewsNote.ViewRemoveNota;
 import View.ViewsNote.ViewShowAllNote;
 import View.ViewsStudenti.ViewAddStudent;
@@ -34,7 +31,6 @@ import View.ViewsStudenti.ViewShowAllStudenti;
 import View.ViewsStudenti.ViewStudenti;
 
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -45,8 +41,6 @@ public class Bootstrapper {
         StudentRepository studentRepository = new StudentRepository(dbConnectionUtil);
         MaterieRepository materieRepository = new MaterieRepository(dbConnectionUtil);
         NotaRepository notaRepository = new NotaRepository(dbConnectionUtil);
-
-        ViewUseCases viewUseCases = new ViewUseCases();
 
         ViewShowAllStudenti viewShowAllStudenti = new ViewShowAllStudenti();
         ViewAddStudent viewAddStudent = new ViewAddStudent();
@@ -62,8 +56,7 @@ public class Bootstrapper {
 
         List<IUseCase> studentiUseCases = Arrays.asList(new ShowAllStudentiUseCase(studentRepository,viewShowAllStudenti),
                 new AddStudentUseCase(studentRepository, viewAddStudent),
-                new RemoveStudentUseCase(studentRepository, viewRemoveStudent),
-                new ReturnUseCase());
+                new RemoveStudentUseCase(studentRepository, viewRemoveStudent));
 
         List<IUseCase> noteUseCases = Arrays.asList(new ShowAllNoteUseCase(notaRepository,viewShowAllNote),
                 new AddNotaUseCase(notaRepository,viewAddNota),

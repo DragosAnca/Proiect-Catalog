@@ -4,8 +4,10 @@ import Business.UseCases.IUseCase;
 import View.ViewsStudenti.ViewStudenti;
 
 public class StudentiUseCase implements IUseCase {
+
     private final String name = "Studenti";
     private final String description = "- operatii pe tabela de studenti";
+
     private ViewStudenti viewStudenti;
 
     public StudentiUseCase(ViewStudenti viewStudenti) {

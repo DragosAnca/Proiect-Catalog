@@ -1,4 +1,4 @@
-package View;
+package View.ViewsNote;
 
 
 import Business.UseCases.IUseCase;
@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class ViewNote implements IViewNote {
 
-    private List<IUseCase> useCases;
+    private final List<IUseCase> useCases;
     public ViewNote(List<IUseCase> useCases){
         this.useCases = useCases;
     }
@@ -21,6 +21,9 @@ public class ViewNote implements IViewNote {
             printUseCases();
             System.out.println("Please select use case");
             String input = scanner.nextLine();
+            if (input.contains("0")){
+                break;
+            }
             IUseCase useCase = chooseUseCase(input);
             if (useCase != null)
                 useCase.execute();
@@ -30,9 +33,9 @@ public class ViewNote implements IViewNote {
     void printUseCases() {
         for (IUseCase useCase :
                 useCases) {
-            System.out.println(useCase.getName());
-
+            System.out.println(useCase.getName()+ " " + useCase.getDescription());
         }
+        System.out.println("0. Back to main menu");
     }
 
     private IUseCase chooseUseCase(String input) {
